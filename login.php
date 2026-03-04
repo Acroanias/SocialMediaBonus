@@ -22,6 +22,7 @@
 
             $username =$_POST["username"];
             $password =$_POST["password"];
+            $hash = password_hash($password, PASSWORD_DEFAULT); //using hash function to hash given password
 
             $sql = "SELECT * FROM Users where 
             username='$username' and password ='$password'";
