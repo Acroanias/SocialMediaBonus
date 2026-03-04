@@ -24,6 +24,24 @@
             $password =$_POST["password"];
             $hash = password_hash($password, PASSWORD_DEFAULT); //using hash function to hash given password
 
+            //fetch the user name only
+            $stmt = $conn ->prepare ("SELECT * FROM Users WHERE username = ?");
+            $stmt->bind_param("s", $username);
+            $result = $stmt->get_result();
+
+            if ($result->num_rows > 0) {
+                $user = $result->fetch_assoc();
+
+                //verify the entered password against the stored hash
+                if (password_verify($password, $user["password"])){
+                    $message = "Login Successful";
+                } else {
+                    $message = "Login Unsuccessful";
+                }
+            } else { 
+                $message = "Login Unsuccessful";
+            }
+        } 
             $sql = "SELECT * FROM Users where 
             username='$username' and password ='$password'";
 
