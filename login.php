@@ -2,8 +2,15 @@
 <html>
     <head>
         <title>Login</title>
+        <style>
+            table {border-collapse: collapse; width: 100%; margin-bottom: 30px;}
+            th, td {border: 1 px solid #ccc; padding: 8px; text-align: left; }
+            th { background-color: #4CAF50; color: white; }
+            tr:nth-child(even) {baxkground-color: #f2f2f2; }
+            h3 {color: #333;}
+        </style>
     </head>
-    <body>
+    <body> 
 
     <h2>Login Page</h2>
 
